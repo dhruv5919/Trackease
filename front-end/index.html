@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trackease</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Login / Signup Modal -->
+  <div class="auth-modal" id="authModal" style="display: none;">
+    <div class="auth-box">
+      <span class="close-auth" onclick="toggleAuth(false)" title="Close">&times;</span>
+      <h3 id="authTitle">Login</h3>
+      <input type="email" placeholder="Email" id="authEmail">
+      <input type="password" placeholder="Password" id="authPassword">
+      <div id="confirmPasswordContainer" style="display: none;">
+        <input type="password" placeholder="Confirm Password" id="authConfirmPassword">
+      </div>
+      <button onclick="handleAuth()" id="authActionBtn">Login</button>
+      <p class="toggle-auth" onclick="switchAuthMode()" id="switchAuthText">Don't have an account? Sign up</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="/front-end/images/trackease-logo.png" alt="Trackease Logo" />
+      <span>Trackease</span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#hero">Home</a>
+      <a href="#how-it-works">How it Works</a>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="cta-button">
+      <a href="#searchWidget" class="btn">Get Started</a>
+      <button class="btn login-btn" onclick="toggleAuth(true)" style="margin-left: 10px;">Login / Signup</button>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- Main Sections (Hero, How it Works, Features, etc.) -->
+   
+  <!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>All Your Cab & Hotel Fares.<br>One Simple View.</h1>
+    <p>Trackease compares fares from Uber, Ola, OYO, Booking.com and more — helping you save money, time, and effort.</p>
+    <a href="#searchWidget" class="btn hero-btn">Get Started for Free</a>
+  </div>
+  <div class="hero-image">
+    <img src="/front-end/images/front page.png" alt="Fare comparison graphic" />
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how-it-works">
+  <h2>How Trackease Works</h2>
+  <div class="steps">
+    <div class="step">
+      <img src="/front-end/images/search your destination.png" alt="Search icon" style="width: 120px; height: auto; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';" />
+      <h3>1. Search Your Destination</h3>
+      <p>Enter your pickup and drop location or hotel preferences. We take care of the rest.</p>
+    </div>
+    <div class="step">
+      <img src="/front-end/images/compare prices instantly.png" alt="Compare icon" style="width: 120px; height: auto; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';" />
+      <h3>2. Compare Prices Instantly</h3>
+      <p>See real-time fares from top apps like Uber, Ola, OYO, Booking.com and more.</p>
+    </div>
+    <div class="step">
+      <img src="/front-end/images/choose and save.png" alt="Choose icon" style="width: 120px; height: auto; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';" />
+      <h3>3. Choose & Save</h3>
+      <p>Select the best option for you and continue booking in the original app with one click.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+  <h2>Why Choose Trackease?</h2>
+  <div class="feature-cards">
+    <div class="feature-card">
+      <img src="/front-end/images/Real time fare compaison.jpg" alt="Instant Results" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px;" />
+      <h3>Real-Time Fare Comparison</h3>
+      <p>Get up-to-the-second price comparisons from major apps without switching tabs.</p>
+    </div>
+    <div class="feature-card">
+      <img src="/front-end/images/safe & secure.jpg" alt="Trusted & Secure" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px;" />
+      <h3>Safe & Secure</h3>
+      <p>We never store personal info. All bookings happen directly through official platforms.</p>
+    </div>
+    <div class="feature-card">
+      <img src="/front-end/images/save big data.jpg" alt="Save Money" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px;" />
+      <h3>Save Big</h3>
+      <p>Trackease helps you save money on every trip — from quick rides to long hotel stays.</p>
+    </div>
+    <div class="feature-card">
+      <img src="/front-end/images/Fast and simple.jpg" alt="Easy to Use" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px;" />
+      <h3>Fast & Simple</h3>
+      <p>Designed for speed and simplicity. Just search, compare, and book — that’s it!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Live Demo Widget -->
+<section class="live-demo" id="searchWidget">
+  <h2>Try It Now</h2>
+  <p class="demo-subtitle">Instantly preview how Trackease compares fares</p>
+  <div class="demo-widget">
+    <div class="tabs">
+      <button class="tab active" data-tab="cab">Cab</button>
+      <button class="tab" data-tab="hotel">Hotel</button>
+    </div>
+    <div class="tab-content active" id="cab">
+      <input type="text" placeholder="Pickup Location" id="pickup" />
+      <input type="text" placeholder="Drop Location" id="drop" />
+      <button class="compare-btn" onclick="handleCabSearch()">Compare Fares</button>
+      <div id="cabResults" class="results"></div>
+      <div id="map" style="height: 400px; width: 100%; margin-top: 30px;"></div>
+    </div>
+    <div class="tab-content" id="hotel">
+      <input type="text" placeholder="Location" id="hotelLocation" />
+      <input type="date" id="checkin" />
+      <input type="date" id="checkout" />
+      <div class="hotel-filters" style="margin-top: 10px;">
+        <label for="maxPrice">Max Price (₹):</label>
+        <input type="number" id="maxPrice" placeholder="e.g. 3000" />
+        <label for="minRating">Min Rating (0–10):</label>
+        <input type="number" id="minRating" placeholder="e.g. 7.5" step="0.1" />
+      </div>
+      <button class="compare-btn" onclick="handleHotelSearch()">Compare Fares</button>
+      <div id="hotelResults" class="results"></div>
+      <button id="showMoreBtn" class="compare-btn" style="display: none;">Show More</button>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+  <h2>What Our Users Say</h2>
+  <div class="testimonial-container">
+    <button class="nav-btn left" onclick="prevTestimonial()">&#8592;</button>
+    <div class="testimonial-card" id="testimonialCard"></div>
+    <button class="nav-btn right" onclick="nextTestimonial()">&#8594;</button>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="download">
+  <div class="cta-content">
+    <h2>Ready to Track the Best Fares?</h2>
+    <p>Compare prices from top cab and hotel apps in seconds. Save time and money effortlessly with Trackease.</p>
+    <div class="cta-buttons">
+      <a href="#searchWidget" class="btn primary">Start Comparing</a>
+      <a href="#" class="btn secondary">Download App</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h2>Get in Touch</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <p>Email: <a href="mailto:shivamkhandelwal641@gmail.com">shivamkhandelwal641@gmail.com</a><br><a href="mailto:khandelwaldhruv33@gmail.com">khandelwaldhruv33@gmail.com</a></p>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <p>Phone: <a href="tel:+919318373403">+91 93183 73403</a><br><a href="tel:+916387229580">+91 63872 29580</a></p>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Location: New Delhi, India</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Keep this section unchanged if it's already working fine -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2><i class="fas fa-map-marker-alt"></i> Trackease</h2>
+        <p>
+          <i class="fas fa-car-side"></i> Compare cabs<br />
+          <i class="fas fa-hotel"></i> Find best hotel prices<br />
+          <i class="fas fa-wallet"></i> Save money & time
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#hero"><i class="fas fa-home"></i> Home</a>
+        <a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a>
+        <a href="#features"><i class="fas fa-star"></i> Features</a>
+        <a href="#searchWidget"><i class="fas fa-search-location"></i> Search</a>
+        <a href="#testimonials"><i class="fas fa-comment-alt"></i> Reviews</a>
+        <a href="#download"><i class="fas fa-download"></i> Download</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 <strong>Trackease</strong>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    let isSignup = false;
+    function toggleAuth(show) {
+      document.getElementById('authModal').style.display = show ? 'flex' : 'none';
+      if (!show) resetAuthFields();
+    }
+    function switchAuthMode() {
+      isSignup = !isSignup;
+      document.getElementById('authTitle').textContent = isSignup ? 'Sign Up' : 'Login';
+      document.getElementById('authActionBtn').textContent = isSignup ? 'Sign Up' : 'Login';
+      document.getElementById('switchAuthText').textContent = isSignup ? 'Already have an account? Login' : "Don't have an account? Sign up";
+      document.getElementById('confirmPasswordContainer').style.display = isSignup ? 'block' : 'none';
+    }
+    async function handleAuth() {
+      const email = document.getElementById('authEmail').value;
+      const password = document.getElementById('authPassword').value;
+
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+      const endpoint = isSignup ? "signup" : "login";
+      try {
+        const res = await fetch(`http://localhost:5000/api/auth/${endpoint}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.error || "Authentication failed.");
+          return;
+        }
+
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+          alert(isSignup ? "Account created successfully!" : "Login successful!");
+          toggleAuth(false);
+        } else {
+          alert("No token received from server.");
+        }
+
+      } catch (err) {
+        console.error("Auth error:", err);
+        alert("Something went wrong during authentication.");
+      }
+    }
+    function resetAuthFields() {
+      document.getElementById('authEmail').value = '';
+      document.getElementById('authPassword').value = '';
+      if (document.getElementById('authConfirmPassword')) {
+        document.getElementById('authConfirmPassword').value = '';
+      }
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+  <script src="script.js"></script>
+</body>
+</html>
